@@ -1,22 +1,25 @@
 #include <string.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <cs50.h>
 
 int main(void)
 {
-   char str[] = "robert thomas bowden";
-   const char s[] = " ";
+   # Get user input
+   char name[] = GetString();
    char *token;
    
+   # Split the string at first space
+   token = strtok(name, " ");
    
-   token = strtok(str, s);
-   
-   
-   while( token != NULL ) 
+   # Keep spliting until there is nothing to split
+   while(token != NULL) 
    {
-      printf( "%c", toupper(token[0]) );
-    
-      token = strtok(str, s);
+      # Print the first part splitted
+      printf("%c", toupper(token[0]));
+      
+      # Split the remaining
+      token = strtok(NULL, " ");
    }
    printf("\n");
 }
