@@ -8,7 +8,7 @@ void initialize(char str[]);
 int main(void)
 {
    /* Get user input */
-   char name[] = GetString();
+   string name = GetString();
    
    /* Call the initializing function with the name user gave */
    initialize(name);
