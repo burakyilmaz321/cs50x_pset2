@@ -25,7 +25,7 @@ void initialize(char str[])
    /* Keep spliting until there is nothing to split */
    while(token != NULL) 
    {
-      /* Print first letter of splitted part */
+      /* Turn to uppercase and print the first letter of splitted part */
       printf("%c", toupper(token[0]));
       
       /* Split the remaining */
