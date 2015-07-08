@@ -12,22 +12,25 @@ int main()
 	char * k = "abc";
 	
 	/* Get user input */
-	char * str = "aaaa";
-	int i, j, n, m, mod;
+	char * str = "AAAA";
+	int i, j, n, m, c;
 	for(i = 0, n = strlen(str); i < n; i++)
 	{
 		m = strlen(k);
-		mod = i % m;
-			
+		j = i % m;
+		if(isalpha(k[j]) && isupper(k[j]))
+		    c = k[j] - 65;
+		if(isalpha(k[j]) && islower(k[j]))
+		    c = k[j] - 97;
 		/* Crypt uppercase characters */
 		if (isalpha(str[i]) && isupper(str[i]))
 		{
-			printf("%c", ((str[i] - 65 + k[mod]) % 26) + 65);
+			printf("%c", ((str[i] - 65 + c) % 26) + 65);
 		}
 		/* Crypt lowercase characters */
 		else if(isalpha(str[i]) && islower(str[i]))
 		{
-			printf("%c", ((str[i] - 97 + k[mod] - 97) % 26) + 97);
+			printf("%c", ((str[i] - 97 + c) % 26) + 97);
 		}
 		/* Print non-alpha characters without crypting */
 		else
